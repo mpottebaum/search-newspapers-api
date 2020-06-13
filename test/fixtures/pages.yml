@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  folder_id: 1
+  pdf: MyString
+  date: MyString
+  title_normal: MyString
+  start_year: MyString
+  end_year: MyString
+  city: MyString
+  state: MyString
+  frequency: MyString
+  publisher: MyString
+  note: MyString
+
+two:
+  folder_id: 1
+  pdf: MyString
+  date: MyString
+  title_normal: MyString
+  start_year: MyString
+  end_year: MyString
+  city: MyString
+  state: MyString
+  frequency: MyString
+  publisher: MyString
+  note: MyString
