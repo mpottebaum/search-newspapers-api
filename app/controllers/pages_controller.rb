@@ -10,7 +10,7 @@ class PagesController < ApplicationController
         user = User.find(params[:user_id])
         page = user.pages.create(page_params)
 
-        render json: {message: 'success'}
+        render json: page
     end
     
     def show
@@ -34,6 +34,7 @@ class PagesController < ApplicationController
         params.require(:page).permit(
             :pdf,
             :date,
+            :sequence,
             :title_normal,
             :start_year,
             :end_year,
