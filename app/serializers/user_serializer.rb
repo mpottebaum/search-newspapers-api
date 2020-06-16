@@ -1,12 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :folders
+  attributes :id, :pages
 
-  def folders
-    object.folders.map do |folder|
-      {
-        name: folder.name,
-        saved_pages: folder.saved_pages
-      }
-    end
+  def pages
+    object.pages
   end
 end

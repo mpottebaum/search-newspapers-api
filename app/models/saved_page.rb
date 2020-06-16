@@ -1,4 +1,4 @@
 class SavedPage < ApplicationRecord
-    belongs_to :folder
+    belongs_to :user
     belongs_to :page
 end
