@@ -24,8 +24,10 @@ class PagesController < ApplicationController
 
     def destroy
         user = User.find(params[:user_id])
-        page = mike.pages.find(params[:id])
-        page.destroy
+        params[:page_ids].each do |id|
+            page = user.pages.find(id)
+            page.destroy
+        end
 
         render json: {message: 'success'}
     end
@@ -47,7 +49,8 @@ class PagesController < ApplicationController
             :note,
             :lccn,
             :name,
-            {:languages_attributes => [:name]}
+            {:languages_attributes => [:name]},
+            :page_ids => []
         )
     end
 end
