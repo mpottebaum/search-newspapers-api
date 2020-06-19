@@ -3,21 +3,23 @@ class PagesController < ApplicationController
     def index
         user = User.find(params[:user_id])
 
-        render json: user.pages
+        render json: user.pages, :include => [:languages]
     end
 
     def create
         user = User.find(params[:user_id])
+        # byebug
         page = user.pages.create(page_params)
+        params[:languages_attributes].each {|lang_att| page.languages.find_or_create_by(name: lang_att[:name])}
 
-        render json: page
+        render json: page, :include => [:languages]
     end
     
     def show
         user = User.find(params[:user_id])
         page = mike.pages.find(params[:id])
     
-        render json: page
+        render json: page, :include => [:languages]
     end
 
     def destroy
@@ -43,7 +45,9 @@ class PagesController < ApplicationController
             :frequency,
             :publisher,
             :note,
-            :lccn
+            :lccn,
+            :name,
+            {:languages_attributes => [:name]}
         )
     end
 end
