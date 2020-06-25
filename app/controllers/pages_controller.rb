@@ -15,9 +15,17 @@ class PagesController < ApplicationController
         render json: page, :include => [:languages]
     end
     
-    def show
+    # def show
+    #     user = User.find(params[:user_id])
+    #     page = user.pages.find(params[:id])
+    
+    #     render json: page, :include => [:languages]
+    # end
+
+    def update
         user = User.find(params[:user_id])
-        page = mike.pages.find(params[:id])
+        page = user.pages.find(params[:id])
+        page.update(page_params)
     
         render json: page, :include => [:languages]
     end
